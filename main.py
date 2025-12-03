@@ -27,7 +27,6 @@ def generate_raw1_5():
     df["Stream"] = "EUS"
 
     data = df[df["Assigned_Group"].isin(eus_groups) &
-                df["Service_Type"].str.contains("User Service Restoration") &
                 df["Status"].str.contains("Closed|Resolved", na=False)]
 
     data = data.loc[:, ["Incident_Number", "Submit_Date", "Last_Resolved_Date", "Service_Type", "Priority", "SLM_Status",
